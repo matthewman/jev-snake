@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Snake</title><link rel="stylesheet" href="./style.css"><link rel="icon" href="./icon.svg" type="image/svg+xml"></head>
+<body><main>
+<header><h1>Snake</h1><details class="recording-picker"><summary>Open recording</summary><div><label for="session">Recording</label><select id="session" disabled><option>No recordings yet</option></select><label class="file-label">Open a file<input id="file" type="file" accept=".json,application/json"></label></div></details></header>
+<p id="status" class="notice" role="status">Loading recordings…</p>
+<section class="studio" aria-label="Game replay">
+<div class="studio-bar"><label>Take <select id="take" disabled><option>—</option></select></label><label>Frame <select id="format"><option value="landscape">Landscape · 16:9</option><option value="portrait">Portrait · 9:16</option></select></label></div>
+<canvas id="screen" width="1280" height="720" role="img" aria-label="Snake replay"></canvas>
+<div class="transport"><button id="play" class="primary" disabled>Play</button><button id="restart" disabled aria-label="Restart replay">↺</button><input id="scrub" aria-label="Replay time" type="range" min="0" max="0" step="10" value="0" disabled><output id="time">0.0 / 0.0 s</output></div>
+<p id="decision" class="sr-only"></p>
+<div class="export"><label><span class="sr-only">Video range</span><select id="range"><option value="full">Complete take</option><option value="30">30 seconds from playhead</option></select></label><button id="record" disabled>Export video</button><a id="download" hidden download>Save video</a></div>
+<p id="export-status" class="meta" role="status"></p>
+</section>
+<section class="takes"><div class="section-title"><h2>Takes</h2><span id="take-count"></span></div><div id="attempts" class="attempts"></div></section>
+<details class="configuration"><summary>Configuration</summary><dl id="configuration"></dl><p class="meta">Input: structured state with engine-calculated move facts. Avg response is the mean of replies received so far in this take; pending requests, timeouts, cancellations and errors are excluded.</p><p id="provenance" class="meta"></p></details>
+</main><script type="module" src="./app.js"></script></body></html>

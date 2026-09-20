@@ -1,0 +1,1328 @@
+{
+  "schemaVersion": 1,
+  "kind": "jev-repeated-input-probe",
+  "plan": {
+    "fixtures": [
+      {
+        "id": "seed-42-tick-0",
+        "requestBodySha256": "0c2e5d4ae148cbe47497003fd2116851a4b3eeb6f5cf7b645ee49c63617b5228"
+      },
+      {
+        "id": "seed-137-tick-4",
+        "requestBodySha256": "a20fcd9788d91eab59aa671d383ef1cdfee55535b728936a45d33257e1c0c630"
+      },
+      {
+        "id": "seed-256-tick-8",
+        "requestBodySha256": "805bb01096c6031efc84305dcbe96ced2f854b8beb72a50747d58c937b4eeedd"
+      },
+      {
+        "id": "seed-512-tick-16",
+        "requestBodySha256": "83f3f852939164965900c2457656fec7a130676bee9c06e05ede6502039428f4"
+      },
+      {
+        "id": "seed-2026-tick-32",
+        "requestBodySha256": "e791edd0fe1e473e4559c24f4f2eca58162ed840108f5fb822b3838507351d1a"
+      }
+    ],
+    "repeatsPerFixture": 10,
+    "maximumRequests": 50,
+    "timeoutMs": 30000,
+    "scheduleSeed": 20260919,
+    "concurrency": 1,
+    "retries": 0,
+    "purpose": "Compare action choices and returned probabilities for byte-identical inputs; measure response latency separately."
+  },
+  "config": {
+    "id": "jev-direct",
+    "label": "Jev · TypeSafe direct",
+    "adapter": "jev",
+    "model": "jev-latest",
+    "endpoint": "https://api.typesafe.ai/v1/systemone",
+    "keyEnv": "TYPESAFE_API_KEY",
+    "parameters": {}
+  },
+  "suiteHash": "e68f13d67594ac552278267b5b7601c145422a2757891034759244b05ce6d8ac",
+  "fixtures": [
+    {
+      "id": "seed-42-tick-0",
+      "seed": 42,
+      "tick": 0,
+      "body": "{\"model\":\"jev-latest\",\"state\":{\"width\":12,\"height\":12,\"body\":[[6,6],[5,6],[4,6]],\"heading\":1,\"food\":[0,0],\"score\":0,\"step\":0,\"sinceFood\":0,\"done\":false,\"reason\":null,\"limits\":{\"maxSteps\":200,\"starvationSteps\":80}},\"questions\":{\"move\":{\"type\":\"choice\",\"instructions\":\"Play Snake. Maximize food eaten before the episode ends. Avoid walls and your body. Coordinates are [x,y], origin at top left; x increases right and y increases down. Body is head first. Heading is 0=up, 1=right, 2=down, 3=left. Choose a turn relative to the current heading. The snake moves one cell after your decision. The tail vacates unless food is eaten. Starvation and the step limit end the episode. Return one action: left, straight, or right.\",\"criteria\":{\"left\":\"Turn 90 degrees left, then move one cell.\",\"straight\":\"Keep the current heading and move one cell.\",\"right\":\"Turn 90 degrees right, then move one cell.\"}}}}",
+      "requestBodySha256": "0c2e5d4ae148cbe47497003fd2116851a4b3eeb6f5cf7b645ee49c63617b5228"
+    },
+    {
+      "id": "seed-137-tick-4",
+      "seed": 137,
+      "tick": 4,
+      "body": "{\"model\":\"jev-latest\",\"state\":{\"width\":12,\"height\":12,\"body\":[[3,5],[4,5],[5,5]],\"heading\":3,\"food\":[1,0],\"score\":0,\"step\":4,\"sinceFood\":4,\"done\":false,\"reason\":null,\"limits\":{\"maxSteps\":200,\"starvationSteps\":80}},\"questions\":{\"move\":{\"type\":\"choice\",\"instructions\":\"Play Snake. Maximize food eaten before the episode ends. Avoid walls and your body. Coordinates are [x,y], origin at top left; x increases right and y increases down. Body is head first. Heading is 0=up, 1=right, 2=down, 3=left. Choose a turn relative to the current heading. The snake moves one cell after your decision. The tail vacates unless food is eaten. Starvation and the step limit end the episode. Return one action: left, straight, or right.\",\"criteria\":{\"left\":\"Turn 90 degrees left, then move one cell.\",\"straight\":\"Keep the current heading and move one cell.\",\"right\":\"Turn 90 degrees right, then move one cell.\"}}}}",
+      "requestBodySha256": "a20fcd9788d91eab59aa671d383ef1cdfee55535b728936a45d33257e1c0c630"
+    },
+    {
+      "id": "seed-256-tick-8",
+      "seed": 256,
+      "tick": 8,
+      "body": "{\"model\":\"jev-latest\",\"state\":{\"width\":12,\"height\":12,\"body\":[[2,2],[2,3],[2,4]],\"heading\":0,\"food\":[2,0],\"score\":0,\"step\":8,\"sinceFood\":8,\"done\":false,\"reason\":null,\"limits\":{\"maxSteps\":200,\"starvationSteps\":80}},\"questions\":{\"move\":{\"type\":\"choice\",\"instructions\":\"Play Snake. Maximize food eaten before the episode ends. Avoid walls and your body. Coordinates are [x,y], origin at top left; x increases right and y increases down. Body is head first. Heading is 0=up, 1=right, 2=down, 3=left. Choose a turn relative to the current heading. The snake moves one cell after your decision. The tail vacates unless food is eaten. Starvation and the step limit end the episode. Return one action: left, straight, or right.\",\"criteria\":{\"left\":\"Turn 90 degrees left, then move one cell.\",\"straight\":\"Keep the current heading and move one cell.\",\"right\":\"Turn 90 degrees right, then move one cell.\"}}}}",
+      "requestBodySha256": "805bb01096c6031efc84305dcbe96ced2f854b8beb72a50747d58c937b4eeedd"
+    },
+    {
+      "id": "seed-512-tick-16",
+      "seed": 512,
+      "tick": 16,
+      "body": "{\"model\":\"jev-latest\",\"state\":{\"width\":12,\"height\":12,\"body\":[[9,3],[9,2],[9,1],[9,0],[8,0]],\"heading\":2,\"food\":[0,8],\"score\":2,\"step\":16,\"sinceFood\":3,\"done\":false,\"reason\":null,\"limits\":{\"maxSteps\":200,\"starvationSteps\":80}},\"questions\":{\"move\":{\"type\":\"choice\",\"instructions\":\"Play Snake. Maximize food eaten before the episode ends. Avoid walls and your body. Coordinates are [x,y], origin at top left; x increases right and y increases down. Body is head first. Heading is 0=up, 1=right, 2=down, 3=left. Choose a turn relative to the current heading. The snake moves one cell after your decision. The tail vacates unless food is eaten. Starvation and the step limit end the episode. Return one action: left, straight, or right.\",\"criteria\":{\"left\":\"Turn 90 degrees left, then move one cell.\",\"straight\":\"Keep the current heading and move one cell.\",\"right\":\"Turn 90 degrees right, then move one cell.\"}}}}",
+      "requestBodySha256": "83f3f852939164965900c2457656fec7a130676bee9c06e05ede6502039428f4"
+    },
+    {
+      "id": "seed-2026-tick-32",
+      "seed": 2026,
+      "tick": 32,
+      "body": "{\"model\":\"jev-latest\",\"state\":{\"width\":12,\"height\":12,\"body\":[[5,9],[4,9],[3,9],[3,10],[3,11],[2,11],[2,10]],\"heading\":1,\"food\":[7,9],\"score\":4,\"step\":32,\"sinceFood\":5,\"done\":false,\"reason\":null,\"limits\":{\"maxSteps\":200,\"starvationSteps\":80}},\"questions\":{\"move\":{\"type\":\"choice\",\"instructions\":\"Play Snake. Maximize food eaten before the episode ends. Avoid walls and your body. Coordinates are [x,y], origin at top left; x increases right and y increases down. Body is head first. Heading is 0=up, 1=right, 2=down, 3=left. Choose a turn relative to the current heading. The snake moves one cell after your decision. The tail vacates unless food is eaten. Starvation and the step limit end the episode. Return one action: left, straight, or right.\",\"criteria\":{\"left\":\"Turn 90 degrees left, then move one cell.\",\"straight\":\"Keep the current heading and move one cell.\",\"right\":\"Turn 90 degrees right, then move one cell.\"}}}}",
+      "requestBodySha256": "e791edd0fe1e473e4559c24f4f2eca58162ed840108f5fb822b3838507351d1a"
+    }
+  ],
+  "runner": {
+    "sourceHash": "b0b5ad143723277816cd3c897271bb0ede27a54c8f391f257e8f59627b53b6b1",
+    "promptHash": "4c76a1bff2983698d8412bd5918cb2bbc7cdd84d380a5f86273a5b9beb72b639",
+    "commit": "56abee33a2bf509e457e017ef509fb6f78a5f9b7",
+    "dirty": true,
+    "node": "v22.16.0",
+    "platform": "darwin",
+    "osRelease": "25.6.0",
+    "arch": "arm64",
+    "cpu": "Apple M4 Max",
+    "region": "local-workstation-region-unspecified",
+    "clock": "process.hrtime.bigint",
+    "concurrency": 1,
+    "retries": 0,
+    "transport": "node-native-fetch",
+    "warmupRequests": 0
+  },
+  "startedAt": "2026-09-19T06:16:20.271Z",
+  "complete": true,
+  "stopReason": null,
+  "trials": [
+    {
+      "fixtureId": "seed-137-tick-4",
+      "requestBodySha256": "a20fcd9788d91eab59aa671d383ef1cdfee55535b728936a45d33257e1c0c630",
+      "repeat": 0,
+      "observedMs": 275.9855411052704,
+      "status": "ok",
+      "decision": {
+        "choice": "straight",
+        "probabilities": {
+          "left": 0.27,
+          "straight": 0.5,
+          "right": 0.23
+        },
+        "confidence": 0.26
+      },
+      "resolvedModel": "jev-1.13.0",
+      "usage": {
+        "inputTokens": 566,
+        "outputTokens": 38
+      },
+      "latencyMs": 275.97416591644287
+    },
+    {
+      "fixtureId": "seed-512-tick-16",
+      "requestBodySha256": "83f3f852939164965900c2457656fec7a130676bee9c06e05ede6502039428f4",
+      "repeat": 0,
+      "observedMs": 79.47412490844727,
+      "status": "ok",
+      "decision": {
+        "choice": "straight",
+        "probabilities": {
+          "left": 0.25,
+          "straight": 0.49,
+          "right": 0.26
+        },
+        "confidence": 0.23
+      },
+      "resolvedModel": "jev-1.13.0",
+      "usage": {
+        "inputTokens": 579,
+        "outputTokens": 38
+      },
+      "latencyMs": 79.47145891189575
+    },
+    {
+      "fixtureId": "seed-256-tick-8",
+      "requestBodySha256": "805bb01096c6031efc84305dcbe96ced2f854b8beb72a50747d58c937b4eeedd",
+      "repeat": 0,
+      "observedMs": 168.4557499885559,
+      "status": "ok",
+      "decision": {
+        "choice": "left",
+        "probabilities": {
+          "left": 0.42,
+          "straight": 0.36,
+          "right": 0.22
+        },
+        "confidence": 0.13
+      },
+      "resolvedModel": "jev-1.13.0",
+      "usage": {
+        "inputTokens": 566,
+        "outputTokens": 38
+      },
+      "latencyMs": 168.453125
+    },
+    {
+      "fixtureId": "seed-2026-tick-32",
+      "requestBodySha256": "e791edd0fe1e473e4559c24f4f2eca58162ed840108f5fb822b3838507351d1a",
+      "repeat": 0,
+      "observedMs": 110.33316612243652,
+      "status": "ok",
+      "decision": {
+        "choice": "straight",
+        "probabilities": {
+          "left": 0.19,
+          "straight": 0.56,
+          "right": 0.25
+        },
+        "confidence": 0.35
+      },
+      "resolvedModel": "jev-1.13.0",
+      "usage": {
+        "inputTokens": 595,
+        "outputTokens": 38
+      },
+      "latencyMs": 110.33137512207031
+    },
+    {
+      "fixtureId": "seed-42-tick-0",
+      "requestBodySha256": "0c2e5d4ae148cbe47497003fd2116851a4b3eeb6f5cf7b645ee49c63617b5228",
+      "repeat": 0,
+      "observedMs": 191.11008310317993,
+      "status": "ok",
+      "decision": {
+        "choice": "straight",
+        "probabilities": {
+          "left": 0.34,
+          "straight": 0.45,
+          "right": 0.21
+        },
+        "confidence": 0.17
+      },
+      "resolvedModel": "jev-1.13.0",
+      "usage": {
+        "inputTokens": 566,
+        "outputTokens": 38
+      },
+      "latencyMs": 191.1068332195282
+    },
+    {
+      "fixtureId": "seed-137-tick-4",
+      "requestBodySha256": "a20fcd9788d91eab59aa671d383ef1cdfee55535b728936a45d33257e1c0c630",
+      "repeat": 1,
+      "observedMs": 124.8364999294281,
+      "status": "ok",
+      "decision": {
+        "choice": "straight",
+        "probabilities": {
+          "left": 0.25,
+          "straight": 0.53,
+          "right": 0.22
+        },
+        "confidence": 0.3
+      },
+      "resolvedModel": "jev-1.13.0",
+      "usage": {
+        "inputTokens": 566,
+        "outputTokens": 38
+      },
+      "latencyMs": 124.83224987983704
+    },
+    {
+      "fixtureId": "seed-512-tick-16",
+      "requestBodySha256": "83f3f852939164965900c2457656fec7a130676bee9c06e05ede6502039428f4",
+      "repeat": 1,
+      "observedMs": 134.22283291816711,
+      "status": "ok",
+      "decision": {
+        "choice": "straight",
+        "probabilities": {
+          "left": 0.23,
+          "straight": 0.51,
+          "right": 0.26
+        },
+        "confidence": 0.26
+      },
+      "resolvedModel": "jev-1.13.0",
+      "usage": {
+        "inputTokens": 579,
+        "outputTokens": 38
+      },
+      "latencyMs": 134.22070813179016
+    },
+    {
+      "fixtureId": "seed-256-tick-8",
+      "requestBodySha256": "805bb01096c6031efc84305dcbe96ced2f854b8beb72a50747d58c937b4eeedd",
+      "repeat": 1,
+      "observedMs": 85.2789158821106,
+      "status": "ok",
+      "decision": {
+        "choice": "left",
+        "probabilities": {
+          "left": 0.44,
+          "straight": 0.32,
+          "right": 0.24
+        },
+        "confidence": 0.16
+      },
+      "resolvedModel": "jev-1.13.0",
+      "usage": {
+        "inputTokens": 566,
+        "outputTokens": 38
+      },
+      "latencyMs": 85.27662491798401
+    },
+    {
+      "fixtureId": "seed-2026-tick-32",
+      "requestBodySha256": "e791edd0fe1e473e4559c24f4f2eca58162ed840108f5fb822b3838507351d1a",
+      "repeat": 1,
+      "observedMs": 127.37762522697449,
+      "status": "ok",
+      "decision": {
+        "choice": "straight",
+        "probabilities": {
+          "left": 0.19,
+          "straight": 0.6,
+          "right": 0.21
+        },
+        "confidence": 0.4
+      },
+      "resolvedModel": "jev-1.13.0",
+      "usage": {
+        "inputTokens": 595,
+        "outputTokens": 38
+      },
+      "latencyMs": 127.37620806694031
+    },
+    {
+      "fixtureId": "seed-42-tick-0",
+      "requestBodySha256": "0c2e5d4ae148cbe47497003fd2116851a4b3eeb6f5cf7b645ee49c63617b5228",
+      "repeat": 1,
+      "observedMs": 232.80674982070923,
+      "status": "ok",
+      "decision": {
+        "choice": "straight",
+        "probabilities": {
+          "left": 0.35,
+          "straight": 0.44,
+          "right": 0.21
+        },
+        "confidence": 0.16
+      },
+      "resolvedModel": "jev-1.13.0",
+      "usage": {
+        "inputTokens": 566,
+        "outputTokens": 38
+      },
+      "latencyMs": 232.80066585540771
+    },
+    {
+      "fixtureId": "seed-137-tick-4",
+      "requestBodySha256": "a20fcd9788d91eab59aa671d383ef1cdfee55535b728936a45d33257e1c0c630",
+      "repeat": 2,
+      "observedMs": 81.58937501907349,
+      "status": "ok",
+      "decision": {
+        "choice": "straight",
+        "probabilities": {
+          "left": 0.25,
+          "straight": 0.51,
+          "right": 0.24
+        },
+        "confidence": 0.27
+      },
+      "resolvedModel": "jev-1.13.0",
+      "usage": {
+        "inputTokens": 566,
+        "outputTokens": 38
+      },
+      "latencyMs": 81.58404207229614
+    },
+    {
+      "fixtureId": "seed-256-tick-8",
+      "requestBodySha256": "805bb01096c6031efc84305dcbe96ced2f854b8beb72a50747d58c937b4eeedd",
+      "repeat": 2,
+      "observedMs": 113.10054183006287,
+      "status": "ok",
+      "decision": {
+        "choice": "left",
+        "probabilities": {
+          "left": 0.41,
+          "straight": 0.39,
+          "right": 0.2
+        },
+        "confidence": 0.12
+      },
+      "resolvedModel": "jev-1.13.0",
+      "usage": {
+        "inputTokens": 566,
+        "outputTokens": 38
+      },
+      "latencyMs": 113.09624981880188
+    },
+    {
+      "fixtureId": "seed-512-tick-16",
+      "requestBodySha256": "83f3f852939164965900c2457656fec7a130676bee9c06e05ede6502039428f4",
+      "repeat": 2,
+      "observedMs": 261.3853750228882,
+      "status": "ok",
+      "decision": {
+        "choice": "straight",
+        "probabilities": {
+          "left": 0.24,
+          "straight": 0.49,
+          "right": 0.27
+        },
+        "confidence": 0.25
+      },
+      "resolvedModel": "jev-1.13.0",
+      "usage": {
+        "inputTokens": 579,
+        "outputTokens": 38
+      },
+      "latencyMs": 261.38174986839294
+    },
+    {
+      "fixtureId": "seed-2026-tick-32",
+      "requestBodySha256": "e791edd0fe1e473e4559c24f4f2eca58162ed840108f5fb822b3838507351d1a",
+      "repeat": 2,
+      "observedMs": 155.8267080783844,
+      "status": "ok",
+      "decision": {
+        "choice": "straight",
+        "probabilities": {
+          "left": 0.2,
+          "straight": 0.58,
+          "right": 0.22
+        },
+        "confidence": 0.37
+      },
+      "resolvedModel": "jev-1.13.0",
+      "usage": {
+        "inputTokens": 595,
+        "outputTokens": 38
+      },
+      "latencyMs": 155.8221251964569
+    },
+    {
+      "fixtureId": "seed-42-tick-0",
+      "requestBodySha256": "0c2e5d4ae148cbe47497003fd2116851a4b3eeb6f5cf7b645ee49c63617b5228",
+      "repeat": 2,
+      "observedMs": 99.78200006484985,
+      "status": "ok",
+      "decision": {
+        "choice": "left",
+        "probabilities": {
+          "left": 0.44,
+          "straight": 0.39,
+          "right": 0.17
+        },
+        "confidence": 0.16
+      },
+      "resolvedModel": "jev-1.13.0",
+      "usage": {
+        "inputTokens": 566,
+        "outputTokens": 38
+      },
+      "latencyMs": 99.7803750038147
+    },
+    {
+      "fixtureId": "seed-256-tick-8",
+      "requestBodySha256": "805bb01096c6031efc84305dcbe96ced2f854b8beb72a50747d58c937b4eeedd",
+      "repeat": 3,
+      "observedMs": 151.0935411453247,
+      "status": "ok",
+      "decision": {
+        "choice": "left",
+        "probabilities": {
+          "left": 0.42,
+          "straight": 0.37,
+          "right": 0.21
+        },
+        "confidence": 0.12
+      },
+      "resolvedModel": "jev-1.13.0",
+      "usage": {
+        "inputTokens": 566,
+        "outputTokens": 38
+      },
+      "latencyMs": 151.09208297729492
+    },
+    {
+      "fixtureId": "seed-512-tick-16",
+      "requestBodySha256": "83f3f852939164965900c2457656fec7a130676bee9c06e05ede6502039428f4",
+      "repeat": 3,
+      "observedMs": 121.01208305358887,
+      "status": "ok",
+      "decision": {
+        "choice": "straight",
+        "probabilities": {
+          "left": 0.23,
+          "straight": 0.53,
+          "right": 0.24
+        },
+        "confidence": 0.29
+      },
+      "resolvedModel": "jev-1.13.0",
+      "usage": {
+        "inputTokens": 579,
+        "outputTokens": 38
+      },
+      "latencyMs": 121.0090000629425
+    },
+    {
+      "fixtureId": "seed-137-tick-4",
+      "requestBodySha256": "a20fcd9788d91eab59aa671d383ef1cdfee55535b728936a45d33257e1c0c630",
+      "repeat": 3,
+      "observedMs": 125.32275009155273,
+      "status": "ok",
+      "decision": {
+        "choice": "straight",
+        "probabilities": {
+          "left": 0.26,
+          "straight": 0.49,
+          "right": 0.25
+        },
+        "confidence": 0.24
+      },
+      "resolvedModel": "jev-1.13.0",
+      "usage": {
+        "inputTokens": 566,
+        "outputTokens": 38
+      },
+      "latencyMs": 125.32183289527893
+    },
+    {
+      "fixtureId": "seed-2026-tick-32",
+      "requestBodySha256": "e791edd0fe1e473e4559c24f4f2eca58162ed840108f5fb822b3838507351d1a",
+      "repeat": 3,
+      "observedMs": 180.74170804023743,
+      "status": "ok",
+      "decision": {
+        "choice": "straight",
+        "probabilities": {
+          "left": 0.2,
+          "straight": 0.57,
+          "right": 0.23
+        },
+        "confidence": 0.35
+      },
+      "resolvedModel": "jev-1.13.0",
+      "usage": {
+        "inputTokens": 595,
+        "outputTokens": 38
+      },
+      "latencyMs": 180.7375831604004
+    },
+    {
+      "fixtureId": "seed-42-tick-0",
+      "requestBodySha256": "0c2e5d4ae148cbe47497003fd2116851a4b3eeb6f5cf7b645ee49c63617b5228",
+      "repeat": 3,
+      "observedMs": 111.84637498855591,
+      "status": "ok",
+      "decision": {
+        "choice": "left",
+        "probabilities": {
+          "left": 0.42,
+          "straight": 0.4,
+          "right": 0.18
+        },
+        "confidence": 0.14
+      },
+      "resolvedModel": "jev-1.13.0",
+      "usage": {
+        "inputTokens": 566,
+        "outputTokens": 38
+      },
+      "latencyMs": 111.84416699409485
+    },
+    {
+      "fixtureId": "seed-137-tick-4",
+      "requestBodySha256": "a20fcd9788d91eab59aa671d383ef1cdfee55535b728936a45d33257e1c0c630",
+      "repeat": 4,
+      "observedMs": 115.0781672000885,
+      "status": "ok",
+      "decision": {
+        "choice": "straight",
+        "probabilities": {
+          "left": 0.28,
+          "straight": 0.51,
+          "right": 0.21
+        },
+        "confidence": 0.26
+      },
+      "resolvedModel": "jev-1.13.0",
+      "usage": {
+        "inputTokens": 566,
+        "outputTokens": 38
+      },
+      "latencyMs": 115.07562518119812
+    },
+    {
+      "fixtureId": "seed-256-tick-8",
+      "requestBodySha256": "805bb01096c6031efc84305dcbe96ced2f854b8beb72a50747d58c937b4eeedd",
+      "repeat": 4,
+      "observedMs": 165.31379199028015,
+      "status": "ok",
+      "decision": {
+        "choice": "left",
+        "probabilities": {
+          "left": 0.39,
+          "straight": 0.37,
+          "right": 0.24
+        },
+        "confidence": 0.08
+      },
+      "resolvedModel": "jev-1.13.0",
+      "usage": {
+        "inputTokens": 566,
+        "outputTokens": 38
+      },
+      "latencyMs": 165.3110420703888
+    },
+    {
+      "fixtureId": "seed-512-tick-16",
+      "requestBodySha256": "83f3f852939164965900c2457656fec7a130676bee9c06e05ede6502039428f4",
+      "repeat": 4,
+      "observedMs": 90.5390419960022,
+      "status": "ok",
+      "decision": {
+        "choice": "straight",
+        "probabilities": {
+          "left": 0.24,
+          "straight": 0.5,
+          "right": 0.26
+        },
+        "confidence": 0.25
+      },
+      "resolvedModel": "jev-1.13.0",
+      "usage": {
+        "inputTokens": 579,
+        "outputTokens": 38
+      },
+      "latencyMs": 90.53687500953674
+    },
+    {
+      "fixtureId": "seed-2026-tick-32",
+      "requestBodySha256": "e791edd0fe1e473e4559c24f4f2eca58162ed840108f5fb822b3838507351d1a",
+      "repeat": 4,
+      "observedMs": 91.6965000629425,
+      "status": "ok",
+      "decision": {
+        "choice": "straight",
+        "probabilities": {
+          "left": 0.21,
+          "straight": 0.57,
+          "right": 0.22
+        },
+        "confidence": 0.36
+      },
+      "resolvedModel": "jev-1.13.0",
+      "usage": {
+        "inputTokens": 595,
+        "outputTokens": 38
+      },
+      "latencyMs": 91.69516706466675
+    },
+    {
+      "fixtureId": "seed-42-tick-0",
+      "requestBodySha256": "0c2e5d4ae148cbe47497003fd2116851a4b3eeb6f5cf7b645ee49c63617b5228",
+      "repeat": 4,
+      "observedMs": 127.90362501144409,
+      "status": "ok",
+      "decision": {
+        "choice": "straight",
+        "probabilities": {
+          "left": 0.36,
+          "straight": 0.45,
+          "right": 0.19
+        },
+        "confidence": 0.17
+      },
+      "resolvedModel": "jev-1.13.0",
+      "usage": {
+        "inputTokens": 566,
+        "outputTokens": 38
+      },
+      "latencyMs": 127.90062522888184
+    },
+    {
+      "fixtureId": "seed-512-tick-16",
+      "requestBodySha256": "83f3f852939164965900c2457656fec7a130676bee9c06e05ede6502039428f4",
+      "repeat": 5,
+      "observedMs": 142.7346670627594,
+      "status": "ok",
+      "decision": {
+        "choice": "straight",
+        "probabilities": {
+          "left": 0.26,
+          "straight": 0.51,
+          "right": 0.23
+        },
+        "confidence": 0.26
+      },
+      "resolvedModel": "jev-1.13.0",
+      "usage": {
+        "inputTokens": 579,
+        "outputTokens": 38
+      },
+      "latencyMs": 142.73337507247925
+    },
+    {
+      "fixtureId": "seed-137-tick-4",
+      "requestBodySha256": "a20fcd9788d91eab59aa671d383ef1cdfee55535b728936a45d33257e1c0c630",
+      "repeat": 5,
+      "observedMs": 99.16829180717468,
+      "status": "ok",
+      "decision": {
+        "choice": "straight",
+        "probabilities": {
+          "left": 0.26,
+          "straight": 0.5,
+          "right": 0.24
+        },
+        "confidence": 0.26
+      },
+      "resolvedModel": "jev-1.13.0",
+      "usage": {
+        "inputTokens": 566,
+        "outputTokens": 38
+      },
+      "latencyMs": 99.16649985313416
+    },
+    {
+      "fixtureId": "seed-256-tick-8",
+      "requestBodySha256": "805bb01096c6031efc84305dcbe96ced2f854b8beb72a50747d58c937b4eeedd",
+      "repeat": 5,
+      "observedMs": 98.3975830078125,
+      "status": "ok",
+      "decision": {
+        "choice": "left",
+        "probabilities": {
+          "left": 0.41,
+          "straight": 0.38,
+          "right": 0.21
+        },
+        "confidence": 0.11
+      },
+      "resolvedModel": "jev-1.13.0",
+      "usage": {
+        "inputTokens": 566,
+        "outputTokens": 38
+      },
+      "latencyMs": 98.39533305168152
+    },
+    {
+      "fixtureId": "seed-2026-tick-32",
+      "requestBodySha256": "e791edd0fe1e473e4559c24f4f2eca58162ed840108f5fb822b3838507351d1a",
+      "repeat": 5,
+      "observedMs": 125.47812509536743,
+      "status": "ok",
+      "decision": {
+        "choice": "straight",
+        "probabilities": {
+          "left": 0.2,
+          "straight": 0.58,
+          "right": 0.22
+        },
+        "confidence": 0.37
+      },
+      "resolvedModel": "jev-1.13.0",
+      "usage": {
+        "inputTokens": 595,
+        "outputTokens": 38
+      },
+      "latencyMs": 125.4760000705719
+    },
+    {
+      "fixtureId": "seed-42-tick-0",
+      "requestBodySha256": "0c2e5d4ae148cbe47497003fd2116851a4b3eeb6f5cf7b645ee49c63617b5228",
+      "repeat": 5,
+      "observedMs": 115.53579187393188,
+      "status": "ok",
+      "decision": {
+        "choice": "straight",
+        "probabilities": {
+          "left": 0.35,
+          "straight": 0.46,
+          "right": 0.19
+        },
+        "confidence": 0.18
+      },
+      "resolvedModel": "jev-1.13.0",
+      "usage": {
+        "inputTokens": 566,
+        "outputTokens": 38
+      },
+      "latencyMs": 115.5335419178009
+    },
+    {
+      "fixtureId": "seed-512-tick-16",
+      "requestBodySha256": "83f3f852939164965900c2457656fec7a130676bee9c06e05ede6502039428f4",
+      "repeat": 6,
+      "observedMs": 134.84183382987976,
+      "status": "ok",
+      "decision": {
+        "choice": "straight",
+        "probabilities": {
+          "left": 0.27,
+          "straight": 0.48,
+          "right": 0.25
+        },
+        "confidence": 0.22
+      },
+      "resolvedModel": "jev-1.13.0",
+      "usage": {
+        "inputTokens": 579,
+        "outputTokens": 38
+      },
+      "latencyMs": 134.8399999141693
+    },
+    {
+      "fixtureId": "seed-256-tick-8",
+      "requestBodySha256": "805bb01096c6031efc84305dcbe96ced2f854b8beb72a50747d58c937b4eeedd",
+      "repeat": 6,
+      "observedMs": 130.1149160861969,
+      "status": "ok",
+      "decision": {
+        "choice": "left",
+        "probabilities": {
+          "left": 0.4,
+          "straight": 0.38,
+          "right": 0.22
+        },
+        "confidence": 0.1
+      },
+      "resolvedModel": "jev-1.13.0",
+      "usage": {
+        "inputTokens": 566,
+        "outputTokens": 38
+      },
+      "latencyMs": 130.11437511444092
+    },
+    {
+      "fixtureId": "seed-137-tick-4",
+      "requestBodySha256": "a20fcd9788d91eab59aa671d383ef1cdfee55535b728936a45d33257e1c0c630",
+      "repeat": 6,
+      "observedMs": 97.96720910072327,
+      "status": "ok",
+      "decision": {
+        "choice": "straight",
+        "probabilities": {
+          "left": 0.25,
+          "straight": 0.53,
+          "right": 0.22
+        },
+        "confidence": 0.3
+      },
+      "resolvedModel": "jev-1.13.0",
+      "usage": {
+        "inputTokens": 566,
+        "outputTokens": 38
+      },
+      "latencyMs": 97.96633410453796
+    },
+    {
+      "fixtureId": "seed-2026-tick-32",
+      "requestBodySha256": "e791edd0fe1e473e4559c24f4f2eca58162ed840108f5fb822b3838507351d1a",
+      "repeat": 6,
+      "observedMs": 173.94666600227356,
+      "status": "ok",
+      "decision": {
+        "choice": "straight",
+        "probabilities": {
+          "left": 0.22,
+          "straight": 0.57,
+          "right": 0.21
+        },
+        "confidence": 0.36
+      },
+      "resolvedModel": "jev-1.13.0",
+      "usage": {
+        "inputTokens": 595,
+        "outputTokens": 38
+      },
+      "latencyMs": 173.94466614723206
+    },
+    {
+      "fixtureId": "seed-42-tick-0",
+      "requestBodySha256": "0c2e5d4ae148cbe47497003fd2116851a4b3eeb6f5cf7b645ee49c63617b5228",
+      "repeat": 6,
+      "observedMs": 112.66041588783264,
+      "status": "ok",
+      "decision": {
+        "choice": "straight",
+        "probabilities": {
+          "left": 0.31,
+          "straight": 0.47,
+          "right": 0.22
+        },
+        "confidence": 0.21
+      },
+      "resolvedModel": "jev-1.13.0",
+      "usage": {
+        "inputTokens": 566,
+        "outputTokens": 38
+      },
+      "latencyMs": 112.65962505340576
+    },
+    {
+      "fixtureId": "seed-512-tick-16",
+      "requestBodySha256": "83f3f852939164965900c2457656fec7a130676bee9c06e05ede6502039428f4",
+      "repeat": 7,
+      "observedMs": 154.68554091453552,
+      "status": "ok",
+      "decision": {
+        "choice": "straight",
+        "probabilities": {
+          "left": 0.29,
+          "straight": 0.47,
+          "right": 0.24
+        },
+        "confidence": 0.21
+      },
+      "resolvedModel": "jev-1.13.0",
+      "usage": {
+        "inputTokens": 579,
+        "outputTokens": 38
+      },
+      "latencyMs": 154.68362498283386
+    },
+    {
+      "fixtureId": "seed-137-tick-4",
+      "requestBodySha256": "a20fcd9788d91eab59aa671d383ef1cdfee55535b728936a45d33257e1c0c630",
+      "repeat": 7,
+      "observedMs": 101.7046251296997,
+      "status": "ok",
+      "decision": {
+        "choice": "straight",
+        "probabilities": {
+          "left": 0.29,
+          "straight": 0.5,
+          "right": 0.21
+        },
+        "confidence": 0.24
+      },
+      "resolvedModel": "jev-1.13.0",
+      "usage": {
+        "inputTokens": 566,
+        "outputTokens": 38
+      },
+      "latencyMs": 101.7037501335144
+    },
+    {
+      "fixtureId": "seed-256-tick-8",
+      "requestBodySha256": "805bb01096c6031efc84305dcbe96ced2f854b8beb72a50747d58c937b4eeedd",
+      "repeat": 7,
+      "observedMs": 154.35529208183289,
+      "status": "ok",
+      "decision": {
+        "choice": "left",
+        "probabilities": {
+          "left": 0.41,
+          "straight": 0.39,
+          "right": 0.2
+        },
+        "confidence": 0.11
+      },
+      "resolvedModel": "jev-1.13.0",
+      "usage": {
+        "inputTokens": 566,
+        "outputTokens": 38
+      },
+      "latencyMs": 154.35391688346863
+    },
+    {
+      "fixtureId": "seed-2026-tick-32",
+      "requestBodySha256": "e791edd0fe1e473e4559c24f4f2eca58162ed840108f5fb822b3838507351d1a",
+      "repeat": 7,
+      "observedMs": 90.79574990272522,
+      "status": "ok",
+      "decision": {
+        "choice": "straight",
+        "probabilities": {
+          "left": 0.21,
+          "straight": 0.59,
+          "right": 0.2
+        },
+        "confidence": 0.38
+      },
+      "resolvedModel": "jev-1.13.0",
+      "usage": {
+        "inputTokens": 595,
+        "outputTokens": 38
+      },
+      "latencyMs": 90.79445791244507
+    },
+    {
+      "fixtureId": "seed-42-tick-0",
+      "requestBodySha256": "0c2e5d4ae148cbe47497003fd2116851a4b3eeb6f5cf7b645ee49c63617b5228",
+      "repeat": 7,
+      "observedMs": 117.29675006866455,
+      "status": "ok",
+      "decision": {
+        "choice": "straight",
+        "probabilities": {
+          "left": 0.32,
+          "straight": 0.47,
+          "right": 0.21
+        },
+        "confidence": 0.2
+      },
+      "resolvedModel": "jev-1.13.0",
+      "usage": {
+        "inputTokens": 566,
+        "outputTokens": 38
+      },
+      "latencyMs": 117.2960422039032
+    },
+    {
+      "fixtureId": "seed-256-tick-8",
+      "requestBodySha256": "805bb01096c6031efc84305dcbe96ced2f854b8beb72a50747d58c937b4eeedd",
+      "repeat": 8,
+      "observedMs": 120.6100001335144,
+      "status": "ok",
+      "decision": {
+        "choice": "straight",
+        "probabilities": {
+          "left": 0.38,
+          "straight": 0.39,
+          "right": 0.23
+        },
+        "confidence": 0.09
+      },
+      "resolvedModel": "jev-1.13.0",
+      "usage": {
+        "inputTokens": 566,
+        "outputTokens": 38
+      },
+      "latencyMs": 120.60904216766357
+    },
+    {
+      "fixtureId": "seed-137-tick-4",
+      "requestBodySha256": "a20fcd9788d91eab59aa671d383ef1cdfee55535b728936a45d33257e1c0c630",
+      "repeat": 8,
+      "observedMs": 150.40141701698303,
+      "status": "ok",
+      "decision": {
+        "choice": "straight",
+        "probabilities": {
+          "left": 0.26,
+          "straight": 0.49,
+          "right": 0.25
+        },
+        "confidence": 0.25
+      },
+      "resolvedModel": "jev-1.13.0",
+      "usage": {
+        "inputTokens": 566,
+        "outputTokens": 38
+      },
+      "latencyMs": 150.40045809745789
+    },
+    {
+      "fixtureId": "seed-512-tick-16",
+      "requestBodySha256": "83f3f852939164965900c2457656fec7a130676bee9c06e05ede6502039428f4",
+      "repeat": 8,
+      "observedMs": 171.14374995231628,
+      "status": "ok",
+      "decision": {
+        "choice": "straight",
+        "probabilities": {
+          "left": 0.25,
+          "straight": 0.5,
+          "right": 0.25
+        },
+        "confidence": 0.24
+      },
+      "resolvedModel": "jev-1.13.0",
+      "usage": {
+        "inputTokens": 579,
+        "outputTokens": 38
+      },
+      "latencyMs": 171.14187502861023
+    },
+    {
+      "fixtureId": "seed-2026-tick-32",
+      "requestBodySha256": "e791edd0fe1e473e4559c24f4f2eca58162ed840108f5fb822b3838507351d1a",
+      "repeat": 8,
+      "observedMs": 179.21712517738342,
+      "status": "ok",
+      "decision": {
+        "choice": "straight",
+        "probabilities": {
+          "left": 0.21,
+          "straight": 0.56,
+          "right": 0.23
+        },
+        "confidence": 0.33
+      },
+      "resolvedModel": "jev-1.13.0",
+      "usage": {
+        "inputTokens": 595,
+        "outputTokens": 38
+      },
+      "latencyMs": 179.21545910835266
+    },
+    {
+      "fixtureId": "seed-42-tick-0",
+      "requestBodySha256": "0c2e5d4ae148cbe47497003fd2116851a4b3eeb6f5cf7b645ee49c63617b5228",
+      "repeat": 8,
+      "observedMs": 179.46308279037476,
+      "status": "ok",
+      "decision": {
+        "choice": "left",
+        "probabilities": {
+          "left": 0.43,
+          "straight": 0.39,
+          "right": 0.18
+        },
+        "confidence": 0.15
+      },
+      "resolvedModel": "jev-1.13.0",
+      "usage": {
+        "inputTokens": 566,
+        "outputTokens": 38
+      },
+      "latencyMs": 179.46154189109802
+    },
+    {
+      "fixtureId": "seed-2026-tick-32",
+      "requestBodySha256": "e791edd0fe1e473e4559c24f4f2eca58162ed840108f5fb822b3838507351d1a",
+      "repeat": 9,
+      "observedMs": 143.46370792388916,
+      "status": "ok",
+      "decision": {
+        "choice": "straight",
+        "probabilities": {
+          "left": 0.18,
+          "straight": 0.62,
+          "right": 0.2
+        },
+        "confidence": 0.42
+      },
+      "resolvedModel": "jev-1.13.0",
+      "usage": {
+        "inputTokens": 595,
+        "outputTokens": 38
+      },
+      "latencyMs": 143.46249985694885
+    },
+    {
+      "fixtureId": "seed-256-tick-8",
+      "requestBodySha256": "805bb01096c6031efc84305dcbe96ced2f854b8beb72a50747d58c937b4eeedd",
+      "repeat": 9,
+      "observedMs": 106.76070809364319,
+      "status": "ok",
+      "decision": {
+        "choice": "left",
+        "probabilities": {
+          "left": 0.41,
+          "straight": 0.38,
+          "right": 0.21
+        },
+        "confidence": 0.11
+      },
+      "resolvedModel": "jev-1.13.0",
+      "usage": {
+        "inputTokens": 566,
+        "outputTokens": 38
+      },
+      "latencyMs": 106.75970792770386
+    },
+    {
+      "fixtureId": "seed-137-tick-4",
+      "requestBodySha256": "a20fcd9788d91eab59aa671d383ef1cdfee55535b728936a45d33257e1c0c630",
+      "repeat": 9,
+      "observedMs": 114.7123749256134,
+      "status": "ok",
+      "decision": {
+        "choice": "straight",
+        "probabilities": {
+          "left": 0.3,
+          "straight": 0.45999999999999996,
+          "right": 0.24
+        },
+        "confidence": 0.2
+      },
+      "resolvedModel": "jev-1.13.0",
+      "usage": {
+        "inputTokens": 566,
+        "outputTokens": 38
+      },
+      "latencyMs": 114.71162509918213
+    },
+    {
+      "fixtureId": "seed-512-tick-16",
+      "requestBodySha256": "83f3f852939164965900c2457656fec7a130676bee9c06e05ede6502039428f4",
+      "repeat": 9,
+      "observedMs": 104.2896671295166,
+      "status": "ok",
+      "decision": {
+        "choice": "straight",
+        "probabilities": {
+          "left": 0.28,
+          "straight": 0.5,
+          "right": 0.22
+        },
+        "confidence": 0.25
+      },
+      "resolvedModel": "jev-1.13.0",
+      "usage": {
+        "inputTokens": 579,
+        "outputTokens": 38
+      },
+      "latencyMs": 104.28887510299683
+    },
+    {
+      "fixtureId": "seed-42-tick-0",
+      "requestBodySha256": "0c2e5d4ae148cbe47497003fd2116851a4b3eeb6f5cf7b645ee49c63617b5228",
+      "repeat": 9,
+      "observedMs": 88.95583295822144,
+      "status": "ok",
+      "decision": {
+        "choice": "straight",
+        "probabilities": {
+          "left": 0.33,
+          "straight": 0.48,
+          "right": 0.19
+        },
+        "confidence": 0.22
+      },
+      "resolvedModel": "jev-1.13.0",
+      "usage": {
+        "inputTokens": 566,
+        "outputTokens": 38
+      },
+      "latencyMs": 88.95499992370605
+    }
+  ],
+  "summary": [
+    {
+      "fixtureId": "seed-42-tick-0",
+      "attempts": 10,
+      "successful": 10,
+      "actionCounts": {
+        "left": 3,
+        "straight": 7,
+        "right": 0
+      },
+      "pairwiseActionAgreement": 0.5333333333333333,
+      "identicalActionsObserved": false,
+      "identicalDiagnosticsObserved": false,
+      "maxProbabilityRange": 0.13,
+      "resolvedModels": [
+        "jev-1.13.0"
+      ],
+      "completedLatencyMs": {
+        "count": 10,
+        "min": 88.95499992370605,
+        "p50": 115.5335419178009,
+        "p95": 232.80066585540771,
+        "max": 232.80066585540771
+      }
+    },
+    {
+      "fixtureId": "seed-137-tick-4",
+      "attempts": 10,
+      "successful": 10,
+      "actionCounts": {
+        "left": 0,
+        "straight": 10,
+        "right": 0
+      },
+      "pairwiseActionAgreement": 1,
+      "identicalActionsObserved": true,
+      "identicalDiagnosticsObserved": false,
+      "maxProbabilityRange": 0.07000000000000006,
+      "resolvedModels": [
+        "jev-1.13.0"
+      ],
+      "completedLatencyMs": {
+        "count": 10,
+        "min": 81.58404207229614,
+        "p50": 114.71162509918213,
+        "p95": 275.97416591644287,
+        "max": 275.97416591644287
+      }
+    },
+    {
+      "fixtureId": "seed-256-tick-8",
+      "attempts": 10,
+      "successful": 10,
+      "actionCounts": {
+        "left": 9,
+        "straight": 1,
+        "right": 0
+      },
+      "pairwiseActionAgreement": 0.8,
+      "identicalActionsObserved": false,
+      "identicalDiagnosticsObserved": false,
+      "maxProbabilityRange": 0.07,
+      "resolvedModels": [
+        "jev-1.13.0"
+      ],
+      "completedLatencyMs": {
+        "count": 10,
+        "min": 85.27662491798401,
+        "p50": 120.60904216766357,
+        "p95": 168.453125,
+        "max": 168.453125
+      }
+    },
+    {
+      "fixtureId": "seed-512-tick-16",
+      "attempts": 10,
+      "successful": 10,
+      "actionCounts": {
+        "left": 0,
+        "straight": 10,
+        "right": 0
+      },
+      "pairwiseActionAgreement": 1,
+      "identicalActionsObserved": true,
+      "identicalDiagnosticsObserved": false,
+      "maxProbabilityRange": 0.06000000000000005,
+      "resolvedModels": [
+        "jev-1.13.0"
+      ],
+      "completedLatencyMs": {
+        "count": 10,
+        "min": 79.47145891189575,
+        "p50": 134.22070813179016,
+        "p95": 261.38174986839294,
+        "max": 261.38174986839294
+      }
+    },
+    {
+      "fixtureId": "seed-2026-tick-32",
+      "attempts": 10,
+      "successful": 10,
+      "actionCounts": {
+        "left": 0,
+        "straight": 10,
+        "right": 0
+      },
+      "pairwiseActionAgreement": 1,
+      "identicalActionsObserved": true,
+      "identicalDiagnosticsObserved": false,
+      "maxProbabilityRange": 0.05999999999999994,
+      "resolvedModels": [
+        "jev-1.13.0"
+      ],
+      "completedLatencyMs": {
+        "count": 10,
+        "min": 90.79445791244507,
+        "p50": 127.37620806694031,
+        "p95": 180.7375831604004,
+        "max": 180.7375831604004
+      }
+    }
+  ],
+  "conclusion": "Finite repeated-input probe; stable observations do not prove universal determinism.",
+  "finishedAt": "2026-09-19T06:16:27.044Z"
+}

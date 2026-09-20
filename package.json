@@ -1,0 +1,27 @@
+{
+  "name": "jev-snake-demo",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "node --test",
+    "plan": "node scripts/record.mjs",
+    "record": "node scripts/record.mjs --run",
+    "verify": "node scripts/verify.mjs",
+    "build": "node scripts/build.mjs",
+    "preview": "node scripts/serve.mjs",
+    "sample": "node scripts/sample.mjs",
+    "check": "npm test && npm run build && node scripts/check-build.mjs && npm run results:verify",
+    "analyze": "node scripts/analyze.mjs",
+    "results": "node scripts/results.mjs",
+    "results:verify": "node scripts/results.mjs verify",
+    "replay": "node scripts/results.mjs replay",
+    "setup": "node scripts/setup.mjs",
+    "start": "npm run build && npm run preview"
+  },
+  "description": "A fixed-clock Snake demo with a native Jev adapter and local replay/video export.",
+  "license": "MIT"
+}

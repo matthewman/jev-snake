@@ -1,0 +1,10 @@
+.env
+.env.*
+!.env.example
+recordings/
+dist/
+node_modules/
+.DS_Store
+*.webm
+*.mp4
+*.log

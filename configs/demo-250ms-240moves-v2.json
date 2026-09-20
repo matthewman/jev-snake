@@ -1,0 +1,13 @@
+{
+  "id": "snake-assisted-demo-v2",
+  "inputVersion": "snake-assisted-v1",
+  "width": 12,
+  "height": 12,
+  "maxSteps": 240,
+  "starvationSteps": 100,
+  "tickMs": 250,
+  "deadlineMs": 1000,
+  "seeds": [7307, 7411, 7523],
+  "maxCalls": 720,
+  "model": "jev-latest"
+}
